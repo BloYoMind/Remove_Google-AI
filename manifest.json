@@ -1,13 +1,13 @@
 {
   "manifest_version": 3,
   "name": "No AI Overview",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Removes Google's AI Overview from search results.",
   "content_scripts": [
     {
       "matches": ["*://www.google.com/search*"],
       "js": ["remove_ai.js"],
-      "run_at": "document_idle"
+      "run_at": "document_start"
     }
   ]
 }
