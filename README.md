@@ -1,20 +1,34 @@
 # No AI Overview — Browser Extension
 
-A lightweight extension that removes Google’s **AI Overview** (also called “AI Answers” or “AI Summaries”) from search results.  
-It works by detecting and removing the AI-generated response block as soon as it appears, keeping your search results clean, fast, and human‑curated.
+A lightweight browser extension that disables Google’s **AI Overview** by automatically redirecting all Google searches to the classic **Web** results view (`udm=14`).  
+This mode is AI‑free, fast, and consistent — no injected summaries, no AI answers, no clutter.
 
-This project is released under the **MIT License** and is currently in **beta**.  
-Because Google frequently changes its interface, the extension may not work consistently across all browsers or future updates.
+This project is MIT‑licensed and currently in **beta**.  
+Because Google frequently changes its search architecture, behavior may vary across browsers.
 
 ---
 
-## 🚀 Features
+## 🚀 How It Works
 
-- Removes Google’s AI Overview block from search results  
-- Automatically re-cleans the page if Google re-injects AI content  
-- Lightweight and fast — no external dependencies  
-- Works on Brave, Chrome, Edge, and most Chromium-based browsers  
-- 100% client-side, no tracking or data collection  
+Google recently integrated AI Overview deeply into the search rendering pipeline, meaning it’s no longer just a removable HTML block.  
+Instead of fighting Google’s dynamic DOM, this extension uses a more reliable method:
+
+### ✔ Automatically redirects all Google searches to the **Web** tab  
+The Web tab (`udm=14`) uses Google’s legacy renderer, which **does not support AI Overview at all**.
+
+So instead of hiding AI content, this extension prevents Google from generating it in the first place.
+
+---
+
+## 🧠 Why This Method Is Better
+
+- No flicker or AI block appearing before removal  
+- No need for MutationObservers or DOM scraping  
+- Works even as Google changes class names or injection methods  
+- Faster and more stable than trying to delete AI Overview elements  
+- Works across all Google domains (with proper manifest configuration)
+
+This is the closest thing to a true “AI Overview Off” switch.
 
 ---
 
@@ -32,42 +46,31 @@ The extension will load immediately.
 
 ---
 
-## 🧩 How It Works
+## 🧩 Core Logic (remove_ai.js)
 
-Google injects AI Overview using dynamic HTML containers and scripts.  
-This extension:
+This is the entire redirect logic:
 
-- Identifies known AI Overview containers  
-- Removes them instantly  
-- Uses a `MutationObserver` to keep the page clean even if Google re-adds the block  
-
-This approach avoids modifying URLs or interfering with normal search behavior.
-
----
-
-## ⚠️ Beta Status
-
-This extension is still in **beta**.  
-Google frequently changes:
-
-- DOM structure  
-- Class names  
-- Script injection methods  
-
-Because of this, the extension may occasionally fail until updated.  
-Browser compatibility may also vary, especially outside Chromium-based browsers.
+```js
+// Redirect to the AI-free "Web" view
+if (window.location.pathname === '/search' && !window.location.href.includes('udm=14')) {
+  const url = new URL(window.location.href);
+  url.searchParams.set('udm', '14');
+  window.location.replace(url.href);
+} 
+``` 
+This ensures every Google search loads in the AI‑free Web view.
 
 ---
 
 ## 🖥️ Browser Compatibility
 
-| Browser | Status |
-|---------|--------|
-| **Brave** | Fully supported |
-| **Chrome** | Fully supported |
-| **Edge** | Supported |
-| **Opera / Vivaldi** | Likely supported |
-| **Firefox** | Not supported (Manifest V3 differences) |
+| Browser         | Status                                   |
+|-----------------|-------------------------------------------|
+| **Brave**       | Fully supported                           |
+| **Chrome**      | Fully supported                           |
+| **Edge**        | Supported                                 |
+| **Opera / Vivaldi** | Likely supported                     |
+| **Firefox**     | Not supported (Manifest V3 differences)   |
 
 ---
 
@@ -76,8 +79,15 @@ Browser compatibility may also vary, especially outside Chromium-based browsers.
 no-ai-overview-extension/
 │
 ├── manifest.json       # Extension configuration
-└── remove_ai.js       # Script that removes AI Overview
+└── remove_ai.js       # Redirect logic
 
+---
+
+## ⚠️ Beta Status
+
+This extension is still in **beta**.  
+Google may change how the Web view works or how search parameters are handled.  
+If the redirect stops working, updates may be required.
 
 ---
 
