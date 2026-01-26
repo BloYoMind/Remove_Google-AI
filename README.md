@@ -62,15 +62,18 @@ This ensures every Google search loads in the AI‑free Web view.
 
 ---
 
-## 🖥️ Browser Compatibility
+## 🖥️📱 Browser Compatibility (Desktop & Android)
 
-| Browser         | Status                                   |
-|-----------------|-------------------------------------------|
-| **Brave**       | Fully supported                           |
-| **Chrome**      | Fully supported                           |
-| **Edge**        | Supported                                 |
-| **Opera / Vivaldi** | Likely supported                     |
-| **Firefox**     | Not supported (Manifest V3 differences)   |
+| Browser / Platform      | Desktop Support       | Android Support        | Notes |
+|-------------------------|------------------------|-------------------------|-------|
+| **Brave**               | ✔ Fully supported      | ✔ Fully supported       | Brave supports Manifest V3 extensions on both desktop and Android. |
+| **Chrome**              | ✔ Fully supported      | ✘ Not supported         | Chrome for Android does **not** support extensions of any kind. |
+| **Edge**                | ✔ Supported            | ✘ Not supported         | Edge mobile has no extension support. |
+| **Opera / Vivaldi**     | ✔ Likely supported     | ✘ Not supported         | Desktop versions are Chromium-based; mobile versions lack extensions. |
+| **Kiwi Browser**        | ✔ Supported            | ✔ Supported             | Kiwi supports Chrome extensions on Android, including MV3. |
+| **Firefox**             | ✘ Not supported (MV3)  | ✘ Not supported (MV3)   | Firefox does not support Manifest V3 extensions yet. |
+
+
 
 ---
 
