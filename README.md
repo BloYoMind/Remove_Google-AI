@@ -79,11 +79,12 @@ This ensures every Google search loads in the AI‑free Web view.
 
 ## 📁 Project Structure
 
+```
 no-ai-overview-extension/
 │
 ├── manifest.json       # Extension configuration
 └── remove_ai.js       # Redirect logic
-
+```
 ---
 
 ## ⚠️ Beta Status
