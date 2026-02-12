@@ -8,7 +8,7 @@ Because Google frequently changes its search architecture, behavior may vary acr
 
 ---
 
-## 🚀 How It Works
+## How It Works
 
 Google recently integrated AI Overview deeply into the search rendering pipeline, meaning it’s no longer just a removable HTML block.  
 Instead of fighting Google’s dynamic DOM, this extension uses a more reliable method:
@@ -20,7 +20,7 @@ So instead of hiding AI content, this extension prevents Google from generating 
 
 ---
 
-## 🧠 Why This Method Is Better
+## Why This Method Is Better
 
 - No flicker or AI block appearing before removal  
 - No need for MutationObservers or DOM scraping  
@@ -32,7 +32,7 @@ This is the closest thing to a true “AI Overview Off” switch.
 
 ---
 
-## 📦 Installation (Developer Mode)
+## Installation (Developer Mode)
 
 1. Clone or download this repository  
 2. Open your browser’s extensions page:  
@@ -46,7 +46,7 @@ The extension will load immediately.
 
 ---
 
-## 🧩 Core Logic (remove_ai.js)
+## Core Logic (remove_ai.js)
 
 This is the entire redirect logic:
 
@@ -62,7 +62,7 @@ This ensures every Google search loads in the AI‑free Web view.
 
 ---
 
-## 🖥️📱 Browser Compatibility (Desktop & Android)
+## Browser Compatibility (Desktop & Android)
 
 | Browser / Platform      | Desktop Support       | Android Support        | Notes |
 |-------------------------|------------------------|-------------------------|-------|
@@ -77,7 +77,7 @@ This ensures every Google search loads in the AI‑free Web view.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 no-ai-overview-extension/
@@ -87,7 +87,7 @@ no-ai-overview-extension/
 ```
 ---
 
-## ⚠️ Beta Status
+## Beta Status
 
 This extension is still in **beta**.  
 Google may change how the Web view works or how search parameters are handled.  
@@ -95,7 +95,7 @@ If the redirect stops working, updates may be required.
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the **MIT License**.  
 You are free to use, modify, and distribute it with attribution.
