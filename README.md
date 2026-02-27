@@ -66,7 +66,7 @@ This ensures every Google search loads in the AI‑free Web view.
 
 | Browser / Platform      | Desktop Support       | Android Support        | Notes |
 |-------------------------|------------------------|-------------------------|-------|
-| **Brave**               | ✔ Fully supported      | ✔ Fully supported       | Brave supports Manifest V3 extensions on both desktop and Android. |
+| **Brave**               | ✔ Fully supported      | ✘ Not supported | Brave supports Manifest V3 extensions on desktop not android. |
 | **Chrome**              | ✔ Fully supported      | ✘ Not supported         | Chrome for Android does **not** support extensions of any kind. |
 | **Edge**                | ✔ Supported            | ✘ Not supported         | Edge mobile has no extension support. |
 | **Opera / Vivaldi**     | ✔ Likely supported     | ✘ Not supported         | Desktop versions are Chromium-based; mobile versions lack extensions. |
